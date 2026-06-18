@@ -1,0 +1,4 @@
+export type Status = 'active'|'draft'|'archived'|'inactive';
+export interface Company { id:string; user_id:string; name:string; website:string; industry:string; location:string; status:Status; created_at:string; updated_at:string; jd_count?:number }
+export interface JD { id:string; user_id:string; company_id:string; job_title:string; department:string; location:string; work_mode:string; job_type:string; min_experience_years:number; max_experience_years:number; required_skills:string[]; nice_to_have_skills:string[]; responsibilities:string; qualifications:string; jd_text:string; shortlist_score:number; status:Status; current_version:number; current_jd_hash:string; created_at:string; updated_at:string; companies?:{name:string} }
+export interface Version { id:string; user_id:string; jd_template_id:string; company_id:string; version_number:number; jd_snapshot_json:Partial<JD>; jd_hash:string; change_note:string; created_at:string }

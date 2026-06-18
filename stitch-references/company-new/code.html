@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Company | JD Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e9ddff",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-container": "#23005c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-tint": "#565e74",
+                    "on-background": "#191c1e",
+                    "outline": "#76777d",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#9466ff",
+                    "inverse-primary": "#bec6e0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#000000",
+                    "primary-fixed": "#dae2fd",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "secondary": "#0058be",
+                    "primary-container": "#131b2e",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "secondary-container": "#2170e4",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-container": "#7c839b",
+                    "outline-variant": "#c6c6cd",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "margin-desktop": "32px",
+                    "sidebar-width": "280px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+        }
+        .primary-gradient:hover {
+            opacity: 0.9;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col md:flex-row">
+<!-- Desktop Sidebar (NavigationDrawer) -->
+<aside class="hidden md:flex flex-col gap-stack-sm p-4 h-full w-sidebar-width fixed left-0 top-0 bg-surface-container-low shadow-xl z-30">
+<div class="mb-8 px-2">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">JD Manager</h1>
+<div class="mt-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface">HR Manager</p>
+<p class="text-label-md font-label-md text-on-surface-variant">Recruitment Team</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-lg text-body-lg">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-lg text-body-lg">JD Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-body-lg text-body-lg">Create JD</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-lg text-body-lg">Version History</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-lg text-body-lg">Logout</span>
+</a>
+<p class="text-center text-[10px] text-outline mt-4">v1.0.4</p>
+</div>
+</aside>
+<!-- Mobile Top Bar (TopAppBar) -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile h-16 bg-surface shadow-sm sticky top-0 z-40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">JD Manager</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate HR professional for a software company user profile. The person is smiling warmly, set against a clean, out-of-focus modern office background with soft daylight. The aesthetic is high-end, minimalist, and trustworthy, using a soft blue and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_eIh0u_zXivZZfaxUXIASrQEtySYAJNlHtrEJC8x83y4BPFtR1xJIfzVX8AASBcGYc9Xah4eblWelV9akses_nUe26ETkt8VhGpdfJuj4l2R1iETDgchRDWcU9z5EpR3A_ct73LkKC1eTl3vrley_xz71SQq-AuvhBW-4BWnqtPJsGz_ybAes7uGUaa3IkNbJ-ByNtgrpABu_Cw3V1fUBJWU2V_Q07PcDj2TSg0xpNoykf71QETXasDZ6A6jPX4Y_CcH_THegpo"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-sidebar-width min-h-screen p-margin-mobile md:p-margin-desktop flex flex-col items-center justify-start">
+<!-- Page Header -->
+<div class="w-full max-w-2xl mb-8">
+<nav class="flex items-center text-label-md font-label-md text-on-surface-variant mb-2">
+<a class="hover:text-primary" href="#">Companies</a>
+<span class="material-symbols-outlined text-[14px] mx-2">chevron_right</span>
+<span class="text-primary font-bold">Add New Company</span>
+</nav>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Company Profile</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Register a new organization to manage their specific job descriptions and recruitment workflows.</p>
+</div>
+<!-- Form Card -->
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] border border-outline-variant/30 overflow-hidden">
+<div class="p-stack-lg">
+<form class="space-y-6">
+<!-- Company Name -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant block px-1" for="company_name">Company Name</label>
+<input class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all font-body-md text-body-md text-on-surface" id="company_name" placeholder="e.g. Acme Corporation" type="text"/>
+</div>
+<!-- Website -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant block px-1" for="website">Website URL</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">language</span>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-outline-variant bg-surface focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all font-body-md text-body-md text-on-surface" id="website" placeholder="https://www.company.com" type="url"/>
+</div>
+<p class="text-label-md font-label-md text-outline px-1">Used for fetching company branding and public profile data.</p>
+</div>
+<!-- Industry & Location Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant block px-1" for="industry">Industry</label>
+<select class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all font-body-md text-body-md text-on-surface appearance-none" id="industry">
+<option disabled="" selected="" value="">Select industry</option>
+<option value="tech">Technology</option>
+<option value="finance">Finance</option>
+<option value="healthcare">Healthcare</option>
+<option value="manufacturing">Manufacturing</option>
+<option value="other">Other</option>
+</select>
+<p class="text-label-md font-label-md text-outline px-1">Helps categorize JDs in the library.</p>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant block px-1" for="location">Headquarters Location</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">location_on</span>
+<input class="w-full pl-11 pr-4 py-3 rounded-lg border border-outline-variant bg-surface focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all font-body-md text-body-md text-on-surface" id="location" placeholder="e.g. San Francisco, CA" type="text"/>
+</div>
+</div>
+</div>
+<!-- Status Toggle -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<div>
+<p class="font-body-md text-body-md font-bold text-on-surface">Company Status</p>
+<p class="text-label-md font-label-md text-on-surface-variant">Active companies can publish new JDs.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Actions -->
+<div class="pt-6 border-t border-outline-variant/30 flex flex-col md:flex-row gap-3 md:justify-end">
+<button class="order-2 md:order-1 px-8 py-3 font-body-lg text-body-lg text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors duration-200" type="button">
+                            Cancel
+                        </button>
+<button class="order-1 md:order-2 primary-gradient px-8 py-3 font-body-lg text-body-lg text-white font-bold rounded-lg shadow-md transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                            Save Company
+                        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Decorative Spacer for Mobile Bottom Nav -->
+<div class="h-24 md:hidden"></div>
+</main>
+<!-- Mobile Navigation (BottomNavBar) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">business</span>
+<span class="font-label-md text-label-md font-bold">Companies</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">JD Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple form validation micro-interaction
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Saving...`;
+            
+            setTimeout(() => {
+                btn.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Saved!`;
+                btn.classList.replace('primary-gradient', 'bg-green-600');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-green-600', 'primary-gradient');
+                    btn.disabled = false;
+                }, 2000);
+            }, 1500);
+        });
+
+        // Toggle focus effects visually
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+                input.parentElement.classList.add('transition-transform');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

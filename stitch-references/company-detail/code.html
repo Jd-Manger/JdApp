@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Detail - JD Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CBD5E1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e9ddff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#23005c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "surface-tint": "#565e74",
+                        "on-background": "#191c1e",
+                        "outline": "#76777d",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-container": "#9466ff",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-high": "#e6e8ea",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary": "#000000",
+                        "primary-fixed": "#dae2fd",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "secondary": "#0058be",
+                        "primary-container": "#131b2e",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed": "#23005c",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#45464d",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-container": "#2170e4",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-container": "#7c839b",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "container-max": "1440px",
+                        "margin-desktop": "32px",
+                        "sidebar-width": "280px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation (Desktop Only) -->
+<aside class="hidden md:flex flex-col h-full w-sidebar-width fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant z-50">
+<div class="p-6 flex flex-col h-full">
+<div class="mb-10">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">JD Manager</h1>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-lg text-body-lg">Companies</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-lg text-body-lg">JD Library</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-body-lg text-body-lg">Create JD</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-lg text-body-lg">Version History</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of an HR Manager, clean background, high-end corporate photography style, soft natural lighting, looking confident and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRERffmllBXr3HyOhGsiKuPFcPrpt1wDrrNIXg1hO8qpN4xgskQ5sD9vzUz5mV5fnc_rDywWUjmw2x6hrN7wFFB5CgI1cCBw0xX90rzqxJXiK3esK2cDpZTEREYABxbJ6tEmYBfjTjNexDhlYpZo7eIm2DDIyAup9h4ycIhhKvmsiq5M_TLWKSiqOfE2CRZQp-cXv7aOFfv-91x2OKWJ5RdR55kZ7BpSozk74dru86Fh-fWT8U5M0d-x3KOmvp2qSuCWo9No_SnmI"/>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">HR Manager</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Recruitment Team</p>
+</div>
+</div>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-lg text-body-lg">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Mobile Top Bar -->
+<header class="md:hidden flex justify-between items-center w-full px-4 h-16 bg-surface shadow-sm sticky top-0 z-40">
+<div class="flex items-center gap-3">
+<button class="p-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">JD Manager</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a business woman in a corporate setting, soft studio lighting, professional attire, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcVWMNkLL9znMWbuv5oGFYrRM0AEhE3_NX5hkiar7fpesouCu7qFGjahsoxItAItskfVIH_GMMxeipLwaFya0-LaAmWqpHR8iVBX5GX3Zi8Ss_OC_ablq4yD1deWSEgGxmtVXYgPi3dX0uKmS-dmO-6qkXPU2z8zLGMu3W8EI-cHYe12CWo72yYWa424aA1iT66AEFHlpEjqMdRO12toIaHPuk1OTdN260l_mkMcgEk6_FtzeggYgI9Wc-08HU91KPx1Uzbk0F9g0"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-sidebar-width min-h-screen p-4 md:p-margin-desktop">
+<!-- Header Section: Company Profile -->
+<section class="max-w-container-max mx-auto mb-stack-lg">
+<div class="bg-surface p-6 md:p-gutter rounded-xl shadow-sm border border-outline-variant flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+<!-- Company Logo Placeholder -->
+<div class="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-white border border-outline-variant p-3 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-4xl text-secondary">business</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3 flex-wrap">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">TechNova Systems</h2>
+<span class="bg-[#DCFCE7] text-[#166534] px-3 py-1 rounded-full font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#166534]"></span>
+                                Active Partner
+                            </span>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-surface-variant mt-2">
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">public</span>
+<a class="hover:text-secondary hover:underline" href="#">www.technovasystems.com</a>
+</div>
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">category</span>
+<span>Software &amp; Cloud Infrastructure</span>
+</div>
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span>San Francisco, CA</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+<button class="flex items-center justify-center gap-2 px-6 py-2.5 bg-surface-container-high text-on-surface-variant font-body-lg text-body-lg rounded-lg border border-outline-variant hover:bg-surface-dim transition-colors w-full sm:w-auto">
+<span class="material-symbols-outlined">edit</span>
+                        Edit Company
+                    </button>
+<button class="flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white font-body-lg text-body-lg rounded-lg hover:opacity-90 transition-opacity w-full sm:w-auto shadow-md">
+<span class="material-symbols-outlined">add</span>
+                        Create JD for this Company
+                    </button>
+</div>
+</div>
+</section>
+<!-- Stats Grid (Optional addition for Premium feel) -->
+<section class="max-w-container-max mx-auto mb-stack-lg grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-white p-5 rounded-xl border border-outline-variant shadow-sm">
+<p class="text-on-surface-variant font-label-md text-label-md uppercase tracking-wider mb-1">Total JDs</p>
+<p class="text-on-surface font-headline-lg text-headline-lg">24</p>
+</div>
+<div class="bg-white p-5 rounded-xl border border-outline-variant shadow-sm">
+<p class="text-on-surface-variant font-label-md text-label-md uppercase tracking-wider mb-1">Active Positions</p>
+<p class="text-on-surface font-headline-lg text-headline-lg">12</p>
+</div>
+<div class="bg-white p-5 rounded-xl border border-outline-variant shadow-sm">
+<p class="text-on-surface-variant font-label-md text-label-md uppercase tracking-wider mb-1">Avg. Version Count</p>
+<p class="text-on-surface font-headline-lg text-headline-lg">3.5</p>
+</div>
+<div class="bg-white p-5 rounded-xl border border-outline-variant shadow-sm">
+<p class="text-on-surface-variant font-label-md text-label-md uppercase tracking-wider mb-1">Success Rate</p>
+<p class="text-on-surface font-headline-lg text-headline-lg text-[#166534]">88%</p>
+</div>
+</section>
+<!-- JD List Section Header -->
+<section class="max-w-container-max mx-auto mb-stack-md flex justify-between items-end">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Job Descriptions</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage and version your recruitment documents.</p>
+</div>
+<div class="hidden sm:flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary font-body-md text-body-md bg-white" placeholder="Search JDs..." type="text"/>
+</div>
+<button class="p-2 border border-outline-variant rounded-lg bg-white hover:bg-surface-container">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</section>
+<!-- JD Card List (Asymmetric Grid) -->
+<section class="max-w-container-max mx-auto grid grid-cols-1 xl:grid-cols-2 gap-6 pb-24">
+<!-- JD Card 1: Active -->
+<div class="group bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#166534]"></div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Senior Full Stack Engineer</h4>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium">Engineering Department</p>
+</div>
+<span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded-md font-label-md text-label-md font-bold">Active</span>
+</div>
+<div class="flex gap-6 mt-auto">
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Current Version</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">v1.4.2</p>
+</div>
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Last Updated</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">Oct 12, 2023</p>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col justify-end gap-2 shrink-0 pt-4 sm:pt-0 border-t sm:border-t-0 sm:border-l border-outline-variant sm:pl-6">
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                        View
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                        Edit
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                        Clone
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-error transition-colors py-1.5 px-3 rounded hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+                        Archive
+                    </button>
+</div>
+</div>
+<!-- JD Card 2: Draft -->
+<div class="group bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#92400E]"></div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">VP of Product Marketing</h4>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium">Growth &amp; Marketing</p>
+</div>
+<span class="bg-[#FEF9C3] text-[#92400E] px-2 py-0.5 rounded-md font-label-md text-label-md font-bold">Draft</span>
+</div>
+<div class="flex gap-6 mt-auto">
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Current Version</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">v0.9.1</p>
+</div>
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Last Updated</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">Oct 24, 2023</p>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col justify-end gap-2 shrink-0 pt-4 sm:pt-0 border-t sm:border-t-0 sm:border-l border-outline-variant sm:pl-6">
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                        View
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                        Edit
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                        Clone
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-error transition-colors py-1.5 px-3 rounded hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+                        Archive
+                    </button>
+</div>
+</div>
+<!-- JD Card 3: Archived -->
+<div class="group bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 relative overflow-hidden opacity-75 grayscale-[0.5]">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#475569]"></div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors line-through">Customer Success Lead</h4>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium">Customer Experience</p>
+</div>
+<span class="bg-[#F1F5F9] text-[#475569] px-2 py-0.5 rounded-md font-label-md text-label-md font-bold">Archived</span>
+</div>
+<div class="flex gap-6 mt-auto">
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Current Version</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">v2.1.0</p>
+</div>
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Last Updated</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">Jan 15, 2023</p>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col justify-end gap-2 shrink-0 pt-4 sm:pt-0 border-t sm:border-t-0 sm:border-l border-outline-variant sm:pl-6">
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">history</span>
+                        History
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">unarchive</span>
+                        Restore
+                    </button>
+</div>
+</div>
+<!-- JD Card 4: Active -->
+<div class="group bg-white p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#166534]"></div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Data Science Lead</h4>
+<p class="font-label-md text-label-md text-on-surface-variant font-medium">Artificial Intelligence</p>
+</div>
+<span class="bg-[#DCFCE7] text-[#166534] px-2 py-0.5 rounded-md font-label-md text-label-md font-bold">Active</span>
+</div>
+<div class="flex gap-6 mt-auto">
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Current Version</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">v1.0.0</p>
+</div>
+<div class="space-y-0.5">
+<p class="text-on-surface-variant font-label-md text-label-md">Last Updated</p>
+<p class="text-on-surface font-body-md text-body-md font-semibold">Nov 02, 2023</p>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col justify-end gap-2 shrink-0 pt-4 sm:pt-0 border-t sm:border-t-0 sm:border-l border-outline-variant sm:pl-6">
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                        View
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                        Edit
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors py-1.5 px-3 rounded hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+                        Clone
+                    </button>
+<button class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-error transition-colors py-1.5 px-3 rounded hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+                        Archive
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface shadow-lg border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 scale-95 transition-transform duration-150 font-bold" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-md text-label-md">Companies</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">JD Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

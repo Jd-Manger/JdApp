@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Senior Product Designer JD | JD Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e9ddff",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-container": "#23005c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-tint": "#565e74",
+                    "on-background": "#191c1e",
+                    "outline": "#76777d",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#9466ff",
+                    "inverse-primary": "#bec6e0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#000000",
+                    "primary-fixed": "#dae2fd",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "secondary": "#0058be",
+                    "primary-container": "#131b2e",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "secondary-container": "#2170e4",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-container": "#7c839b",
+                    "outline-variant": "#c6c6cd",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "margin-desktop": "32px",
+                    "sidebar-width": "280px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- Navigation Drawer (Desktop) -->
+<aside class="hidden md:flex h-full w-sidebar-width fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex-col gap-stack-sm p-4 z-40 transition-all duration-300 ease-in-out">
+<div class="mb-8 px-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary">JD Manager</span>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-lg text-body-lg">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-lg text-body-lg">JD Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-body-lg text-body-lg">Create JD</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-lg text-body-lg">Version History</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4">
+<div class="flex items-center gap-3 px-4 py-2">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold">JD</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold">HR Manager</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Recruitment Team</span>
+</div>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 mt-2 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-lg text-body-lg">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-lg text-body-lg">Logout</span>
+</a>
+<div class="px-4 py-2 text-label-md text-outline">v1.0.4</div>
+</div>
+</aside>
+<!-- Top App Bar (Mobile & Title Context) -->
+<header class="fixed top-0 left-0 md:left-sidebar-width right-0 h-16 bg-surface shadow-sm z-30 flex items-center justify-between px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex items-center gap-2 text-outline">
+<span class="font-label-md text-label-md">JD Library</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="font-label-md text-label-md text-primary">Senior Product Designer</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed text-sm">person</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-16 pb-24 md:pb-8 md:pl-sidebar-width min-h-screen">
+<div class="max-w-container-max mx-auto p-margin-mobile md:p-margin-desktop">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-stack-lg mb-8">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="bg-[#DCFCE7] text-[#166534] px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#166534]"></span> Active
+                        </span>
+<span class="bg-[#F1F5F9] text-[#475569] px-3 py-1 rounded-full font-label-md text-label-md">
+                            Version 2.4
+                        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:text-[40px] md:leading-[48px] font-extrabold tracking-tight">Senior Product Designer</h1>
+<p class="font-title-md text-title-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined">business</span>
+                        Nexus Digital Solutions
+                    </p>
+</div>
+<!-- Action Buttons Bar -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0">
+<button class="flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-body-md text-body-md hover:bg-opacity-90 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                    </button>
+<button class="flex items-center gap-2 bg-surface border border-outline-variant px-4 py-2.5 rounded-lg font-body-md text-body-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">content_copy</span> Clone
+                    </button>
+<button class="flex items-center gap-2 bg-surface border border-outline-variant px-4 py-2.5 rounded-lg font-body-md text-body-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">history</span> History
+                    </button>
+<button class="flex items-center justify-center bg-surface border border-outline-variant w-11 h-11 rounded-lg text-error hover:bg-error-container transition-all">
+<span class="material-symbols-outlined">archive</span>
+</button>
+</div>
+</section>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Main Column -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Document Preview Card -->
+<div class="glass-card ambient-shadow rounded-xl p-8 space-y-10">
+<!-- Basic Details List -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 pb-8 border-b border-outline-variant">
+<div>
+<p class="font-label-md text-label-md text-outline uppercase mb-1">Experience</p>
+<p class="font-body-lg text-body-lg font-semibold">5-8 Years</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-outline uppercase mb-1">Work Type</p>
+<p class="font-body-lg text-body-lg font-semibold">Remote / Hybrid</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-outline uppercase mb-1">Job Type</p>
+<p class="font-body-lg text-body-lg font-semibold">Full-Time</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-outline uppercase mb-1">Salary Range</p>
+<p class="font-body-lg text-body-lg font-semibold">$120k - $160k</p>
+</div>
+</div>
+<!-- Job Overview Section -->
+<div class="space-y-4">
+<h3 class="font-title-md text-title-md font-bold border-l-4 border-secondary pl-3">Job Overview</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                We are looking for a Senior Product Designer to join our core product team. You will be responsible for leading the design lifecycle of our flagship HR SaaS platform, from initial discovery and user research to high-fidelity prototyping and design system contribution. You will collaborate closely with product managers, engineers, and stakeholders to create seamless, intuitive experiences that empower recruitment professionals worldwide.
+                            </p>
+</div>
+<!-- Skills Section -->
+<div class="space-y-6">
+<div class="space-y-3">
+<h3 class="font-title-md text-title-md font-bold border-l-4 border-secondary pl-3">Required Skills</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface">Figma Expert</span>
+<span class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface">Design Systems (Atomic)</span>
+<span class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface">User Research</span>
+<span class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface">Wireframing</span>
+<span class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface">UX Strategy</span>
+<span class="px-4 py-2 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-body-md text-on-surface">Accessibility (WCAG)</span>
+</div>
+</div>
+<div class="space-y-3">
+<h3 class="font-title-md text-title-md font-bold text-on-surface-variant pl-4">Nice-to-have</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-white border border-dashed border-outline-variant rounded-full font-label-md text-label-md text-outline">Framer Motion</span>
+<span class="px-3 py-1.5 bg-white border border-dashed border-outline-variant rounded-full font-label-md text-label-md text-outline">HTML/CSS Knowledge</span>
+<span class="px-3 py-1.5 bg-white border border-dashed border-outline-variant rounded-full font-label-md text-label-md text-outline">B2B SaaS Experience</span>
+</div>
+</div>
+</div>
+<!-- Responsibilities & Qualifications -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="space-y-4">
+<h3 class="font-title-md text-title-md font-bold border-l-4 border-secondary pl-3">Key Responsibilities</h3>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant list-none">
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                        Translate complex user requirements into elegant design solutions.
+                                    </li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                        Maintain and evolve the company-wide design system.
+                                    </li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                        Conduct regular usability testing and iterate based on feedback.
+                                    </li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+                                        Partner with engineering to ensure high-quality implementation.
+                                    </li>
+</ul>
+</div>
+<div class="space-y-4">
+<h3 class="font-title-md text-title-md font-bold border-l-4 border-secondary pl-3">Qualifications</h3>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant list-none">
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">school</span>
+                                        Bachelor's Degree in Design, HCI, or equivalent.
+                                    </li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">school</span>
+                                        Strong portfolio showcasing end-to-end product design.
+                                    </li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">school</span>
+                                        Experience working in an Agile/Scrum environment.
+                                    </li>
+<li class="flex gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">school</span>
+                                        Excellent communication and storytelling skills.
+                                    </li>
+</ul>
+</div>
+</div>
+<!-- Full Text / Legal Disclaimer -->
+<div class="pt-8 border-t border-outline-variant space-y-4">
+<p class="font-label-md text-label-md text-outline uppercase">Internal Reference Notes</p>
+<p class="font-body-md text-body-md text-outline italic">
+                                This job description is a confidential internal document. Nexus Digital Solutions is an equal opportunity employer and values diversity at our company. We do not discriminate on the basis of race, religion, color, national origin, gender, sexual orientation, age, marital status, veteran status, or disability status.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Stats Column -->
+<aside class="space-y-6">
+<!-- Stats Card -->
+<div class="bg-white ambient-shadow rounded-xl p-6 space-y-6">
+<h4 class="font-title-md text-title-md font-bold">Document Stats</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md text-body-md">Created Date</span>
+<span class="font-body-md text-body-md font-semibold">Jan 12, 2024</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md text-body-md">Last Updated</span>
+<span class="font-body-md text-body-md font-semibold">2 hours ago</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-body-md text-body-md">Owner</span>
+<span class="font-body-md text-body-md font-semibold">Sarah Jenkins</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-outline uppercase">Shortlist Fit Score</span>
+<span class="font-title-md text-title-md font-bold text-secondary">88%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 88%"></div>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-2">Based on current applicant pool metadata</p>
+</div>
+</div>
+<!-- Quick Preview Image -->
+<div class="rounded-xl overflow-hidden ambient-shadow h-48 relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A professional, brightly lit modern office environment with floor-to-ceiling windows overlooking a clean city skyline. The interior features minimalist furniture, lush indoor plants, and a soft morning light filtering through the space. The visual style is high-contrast and airy, emphasizing a premium corporate atmosphere that aligns with a high-end recruitment software aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn3BwCZurxuAvgTtk4R32qK6NPWBDi9UmdKywB8rfqdmAKsLqXCF9gXqyc87gpwzKrYvx-3BrNn6fQaWQlQrtBiaP8-EcmojvcQ3W4pK6npAKWD9JyUCK1Axm85tL_k4bfaKLu9k-7tQo73gn_4KMyaCeFR2y2bLg9AGyn_6PIZxUOFMUKIZtAv-c2ESRNe4GNKrARGCXSFOD9q4OfgRJnpNO4BlWVy80nH-U5WSOf7XoblTPVWlHwSW0qEIL955hveKbm9ll2peI"/>
+<div class="absolute bottom-4 left-4 z-20">
+<p class="text-white font-body-md text-body-md font-bold">Office: New York HQ</p>
+</div>
+</div>
+<!-- Related Actions -->
+<div class="bg-primary-container text-white rounded-xl p-6 space-y-4">
+<h4 class="font-title-md text-title-md font-bold">Ready to Publish?</h4>
+<p class="text-on-primary-container font-body-md text-body-md">This description meets all compliance checks and matches the team brand guidelines.</p>
+<button class="w-full bg-white text-primary py-3 rounded-lg font-bold hover:bg-surface-container-high transition-colors">
+                            Publish to Careers Page
+                        </button>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-surface-container-highest border-t border-outline-variant shadow-lg flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-md text-label-md">Companies</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-label-md text-label-md">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple interactive effect for chips
+        document.querySelectorAll('.flex-wrap span').forEach(chip => {
+            chip.addEventListener('mouseenter', () => {
+                chip.style.transform = 'translateY(-2px)';
+                chip.style.transition = 'transform 0.2s ease';
+            });
+            chip.addEventListener('mouseleave', () => {
+                chip.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Version badge micro-interaction
+        const versionBadge = document.querySelector('.bg-[#F1F5F9]');
+        versionBadge.style.cursor = 'pointer';
+        versionBadge.addEventListener('click', () => {
+            alert('Opening version history comparison view...');
+        });
+    </script>
+</body></html>

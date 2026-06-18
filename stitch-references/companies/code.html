@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Companies | JD Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e9ddff",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-container": "#23005c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-tint": "#565e74",
+                    "on-background": "#191c1e",
+                    "outline": "#76777d",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#9466ff",
+                    "inverse-primary": "#bec6e0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#000000",
+                    "primary-fixed": "#dae2fd",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "secondary": "#0058be",
+                    "primary-container": "#131b2e",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "secondary-container": "#2170e4",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-container": "#7c839b",
+                    "outline-variant": "#c6c6cd",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "margin-desktop": "32px",
+                    "sidebar-width": "280px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .soft-shadow { box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05); }
+        .sidebar-transition { transition: transform 0.3s ease-in-out; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Desktop Navigation Drawer -->
+<aside class="hidden md:flex h-full w-sidebar-width fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container shadow-xl flex-col gap-stack-sm p-4 z-40">
+<div class="flex items-center gap-3 px-2 py-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-inverse-primary">JD Manager</span>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-lg text-body-lg">Dashboard</span>
+</a>
+<!-- Active State -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="font-body-lg text-body-lg">Companies</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-body-lg text-body-lg">JD Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-body-lg text-body-lg">Create JD</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-lg text-body-lg">Version History</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-3 px-2 py-3 mb-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close-up professional portrait of a smiling female HR manager in a modern office setting, soft natural lighting, high-quality photography, sharp focus, wearing a charcoal blazer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVHUOKQpAr4xSii8TXxcxwtlKrUcXNGl09zMgk9zZadqYKLY7-euoQN863gRoKdp84Fs7DmKFBjSOzXG9ajuLrOXfVmURa0vTFUS4vyA7EBL2yrA-qSs2jPuF9mF1hG7HM6-ovlwx78R2oJ6fEgaJTAgvjK6OHXCI8BK90HCUV_KMdRtuE3QybxDX3tQHjHpJrNlbky_TLXKYffxvx9evyNPs7MK4T3g3Ru-lP4cZ64BAdSPA9Fa1TTBZqeM549yqRkMHwyhvtjBA"/>
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md font-bold truncate">HR Manager</p>
+<p class="text-[10px] text-on-surface-variant truncate uppercase tracking-wider">Recruitment Team</p>
+</div>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-sidebar-width min-h-screen flex flex-col pb-20 md:pb-0">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-30 bg-surface dark:bg-surface-container shadow-sm flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface-variant" id="mobile-menu-btn">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary hidden md:block">Companies</h1>
+<span class="md:hidden font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">JD Manager</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small profile avatar of a professional user, minimalist and clean design, neutral background, centered." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-OvkxtfDXnWBUa_SoZvTdTnP-OfCaDYhiQ3-lPt6ClX9iIq2QjR5vrN2Q-3WVyTmKZC1oEgR-YLnS1ZPomkPmgxrCMdBfY_wPpCtQH-x7JR6ywaQ7bnleZJspvC9Nk7el-064eUpmYSl7OyIxyd17Ye0nh3eDAB-2FaB_adADvI6EcH4_PB4R5QpwCo1kT7r14N1UWtzP8zLOMTlo13E7SsUORPSRHHoqoce5H0p_HiQBt8mhOxSD2uUP5q2MmGhpvwIOlN0mDsg"/>
+</div>
+</div>
+</header>
+<div class="p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto w-full flex-1">
+<!-- Page Header Section -->
+<div class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Companies</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Add and manage companies for which you maintain job descriptions.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative group w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-secondary transition-colors" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all font-body-md text-body-md" placeholder="Search companies..." type="text"/>
+</div>
+<button class="whitespace-nowrap flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-lg font-title-md text-sm hover:opacity-90 transition-all shadow-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                        Add Company
+                    </button>
+</div>
+</div>
+<!-- Dashboard Statistics Quick View -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-stack-lg">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/30 soft-shadow">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Total Companies</p>
+<p class="text-headline-lg font-bold mt-1">24</p>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/30 soft-shadow">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Active Hiring</p>
+<p class="text-headline-lg font-bold mt-1 text-secondary">12</p>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/30 soft-shadow">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Total JDs</p>
+<p class="text-headline-lg font-bold mt-1">156</p>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant/30 soft-shadow">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Growth</p>
+<p class="text-headline-lg font-bold mt-1 text-green-600">+15%</p>
+</div>
+</div>
+<!-- Companies List -->
+<div class="space-y-4" id="companies-container">
+<!-- Company Card 1 -->
+<div class="bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant/30 soft-shadow hover:border-secondary transition-all group flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">Stellar Dynamics</h3>
+<span class="bg-[#DCFCE7] text-[#166534] text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">Active</span>
+</div>
+<div class="flex flex-wrap gap-x-4 gap-y-1 text-on-surface-variant">
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="category">category</span>
+                                    Technology
+                                </div>
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+                                    San Francisco, CA
+                                </div>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4">
+<div class="text-right">
+<p class="text-label-md text-on-surface-variant">Job Descriptions</p>
+<p class="font-title-md text-primary">12 Active</p>
+</div>
+<button class="px-5 py-2 border border-outline-variant rounded-lg text-primary font-label-md hover:bg-surface-container-low transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Company Card 2 -->
+<div class="bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant/30 soft-shadow hover:border-secondary transition-all group flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="factory">factory</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">IronGate Logistics</h3>
+<span class="bg-[#FEF9C3] text-[#92400E] text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">Draft</span>
+</div>
+<div class="flex flex-wrap gap-x-4 gap-y-1 text-on-surface-variant">
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="category">category</span>
+                                    Manufacturing
+                                </div>
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+                                    Chicago, IL
+                                </div>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4">
+<div class="text-right">
+<p class="text-label-md text-on-surface-variant">Job Descriptions</p>
+<p class="font-title-md text-primary">4 Drafting</p>
+</div>
+<button class="px-5 py-2 border border-outline-variant rounded-lg text-primary font-label-md hover:bg-surface-container-low transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Company Card 3 -->
+<div class="bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant/30 soft-shadow hover:border-secondary transition-all group flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="spa">spa</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-title-md text-title-md text-primary group-hover:text-secondary transition-colors">GreenLeaf Health</h3>
+<span class="bg-[#DCFCE7] text-[#166534] text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">Active</span>
+</div>
+<div class="flex flex-wrap gap-x-4 gap-y-1 text-on-surface-variant">
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="category">category</span>
+                                    Healthcare
+                                </div>
+<div class="flex items-center gap-1.5 font-body-md text-body-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+                                    Austin, TX
+                                </div>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4">
+<div class="text-right">
+<p class="text-label-md text-on-surface-variant">Job Descriptions</p>
+<p class="font-title-md text-primary">8 Active</p>
+</div>
+<button class="px-5 py-2 border border-outline-variant rounded-lg text-primary font-label-md hover:bg-surface-container-low transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by Default) -->
+<div class="hidden flex-col items-center justify-center py-24 text-center" id="empty-state">
+<div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-5xl text-outline-variant" data-icon="domain_disabled">domain_disabled</span>
+</div>
+<h3 class="text-headline-lg font-bold text-on-surface mb-2">No companies added yet</h3>
+<p class="text-body-lg text-on-surface-variant max-w-sm mb-8">Start organizing your recruitment by adding the first company you are managing job descriptions for.</p>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-8 py-3 rounded-lg font-title-md hover:opacity-90 transition-all shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Add Your First Company
+                </button>
+</div>
+<!-- List Pagination/Footer -->
+<div class="mt-8 flex items-center justify-between text-on-surface-variant">
+<p class="text-body-md">Showing 3 of 24 companies</p>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-outline-variant rounded-md hover:bg-surface-container-low disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-md hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-container-highest border-t border-outline-variant shadow-lg h-16">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 transition-transform duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="font-label-md text-[10px] font-bold">Companies</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 transition-transform duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-[10px]">JD Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 transition-transform duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-[10px]">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic for demo
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const searchInput = document.querySelector('input[type="text"]');
+        const companiesContainer = document.getElementById('companies-container');
+        const emptyState = document.getElementById('empty-state');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const cards = companiesContainer.querySelectorAll('.group');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.classList.remove('hidden');
+                    card.classList.add('flex');
+                    hasResults = true;
+                } else {
+                    card.classList.remove('flex');
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (!hasResults && query.length > 0) {
+                companiesContainer.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                companiesContainer.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+        });
+
+        // Micro-interaction: Card Hover Elevation
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

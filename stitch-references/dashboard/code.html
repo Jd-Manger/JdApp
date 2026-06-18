@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JD Manager Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e9ddff",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e0e3e5",
+                    "tertiary-container": "#23005c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "surface-tint": "#565e74",
+                    "on-background": "#191c1e",
+                    "outline": "#76777d",
+                    "surface-bright": "#f7f9fb",
+                    "on-tertiary-container": "#9466ff",
+                    "inverse-primary": "#bec6e0",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-dim": "#d8dadc",
+                    "surface-container": "#eceef0",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-high": "#e6e8ea",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary": "#000000",
+                    "primary-fixed": "#dae2fd",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "secondary": "#0058be",
+                    "primary-container": "#131b2e",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-fixed": "#23005c",
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#45464d",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "secondary-container": "#2170e4",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface": "#f7f9fb",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "on-primary-fixed": "#131b2e",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-container": "#7c839b",
+                    "outline-variant": "#c6c6cd",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-md": "16px",
+                    "margin-mobile": "16px",
+                    "container-max": "1440px",
+                    "margin-desktop": "32px",
+                    "sidebar-width": "280px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .action-gradient {
+            background: linear-gradient(135deg, #0058be 0%, #2170e4 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-container shadow-sm fixed top-0 full-width z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="menu">menu</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary dark:text-inverse-primary">JD Manager</h1>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-secondary outline-none text-body-md" placeholder="Search JDs or Companies..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors" data-icon="notifications">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate HR manager in a clean, modern studio setting. The lighting is soft and flattering, emphasizing a trustworthy and expert persona. The background is a neutral, out-of-focus high-end office interior with subtle blue and gray tones, perfectly aligning with a premium recruitment SaaS aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhBP7BllDudw-VJfD6lf7E-NBiH2897n56HHaL437ITo_TgpKENr7yESL1iGmaT-HqJjHloi_wWXDYJiYM6H5ll4EtH7EGx6-FZuhe_p1rup67Fool_bIbNaNFXHzlEXehcAUi2TFSMxUgtbszF-WCw3aoWgwLHjEx1EFfaI1tpg-PMYlrd8pSKzC3F1kIFmrF55QKPG1TjrHHlmnJPCPVswuQcqoe88EzyNPslG-lGkV5eCSWr-loJoUtNLKrJfbujy-dxCZz3oc"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto space-y-stack-lg">
+<!-- Welcome Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div class="space-y-2">
+<h2 class="font-headline-lg text-headline-lg text-primary">Welcome back, Sarah</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage companies, job descriptions, and JD versions from one central dashboard.</p>
+</div>
+<div class="flex gap-stack-md shrink-0">
+<button class="px-6 py-3 border border-outline text-on-surface font-semibold rounded-lg hover:bg-surface-container-low transition-all text-body-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="business">business</span>
+                    Add Company
+                </button>
+<button class="px-6 py-3 action-gradient text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition-all text-body-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+                    Create JD
+                </button>
+</div>
+</section>
+<!-- Stats Grid / Horizontal Scroll -->
+<section class="flex overflow-x-auto md:grid md:grid-cols-5 gap-stack-md custom-scrollbar pb-4 md:pb-0">
+<div class="min-w-[180px] flex-1 bg-white p-6 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Total Companies</span>
+<span class="text-headline-lg font-bold text-primary">24</span>
+</div>
+<div class="min-w-[180px] flex-1 bg-white p-6 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Total JDs</span>
+<span class="text-headline-lg font-bold text-primary">142</span>
+</div>
+<div class="min-w-[180px] flex-1 bg-white p-6 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-2 border-l-4 border-l-[#DCFCE7]">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Active JDs</span>
+<span class="text-headline-lg font-bold text-[#166534]">89</span>
+</div>
+<div class="min-w-[180px] flex-1 bg-white p-6 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-2 border-l-4 border-l-[#FEF9C3]">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Draft JDs</span>
+<span class="text-headline-lg font-bold text-[#92400E]">34</span>
+</div>
+<div class="min-w-[180px] flex-1 bg-white p-6 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-2 border-l-4 border-l-[#F1F5F9]">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Archived JDs</span>
+<span class="text-headline-lg font-bold text-[#475569]">19</span>
+</div>
+</section>
+<!-- Middle Section: Recent Companies & JDs -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Recent Companies -->
+<div class="lg:col-span-4 bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="p-stack-lg border-b border-outline-variant/30 flex justify-between items-center">
+<h3 class="font-title-md text-title-md">Recent Companies</h3>
+<button class="text-secondary text-label-md font-semibold hover:underline">View All</button>
+</div>
+<div class="p-stack-md space-y-4">
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="bolt">bolt</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-body-lg">TechFlow Inc.</p>
+<p class="text-label-md text-on-surface-variant">12 Active JDs</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-body-lg">Global Finance</p>
+<p class="text-label-md text-on-surface-variant">8 Active JDs</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-body-lg">MediCore Health</p>
+<p class="text-label-md text-on-surface-variant">22 Active JDs</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Recent Job Descriptions -->
+<div class="lg:col-span-8 bg-white rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="p-stack-lg border-b border-outline-variant/30 flex justify-between items-center">
+<h3 class="font-title-md text-title-md">Recent Job Descriptions</h3>
+<button class="text-secondary text-label-md font-semibold hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Job Title</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Company</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase">Status</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-blue-50/30 transition-colors group">
+<td class="px-6 py-4 font-semibold text-body-md">Senior Product Designer</td>
+<td class="px-6 py-4 text-body-md text-on-surface-variant">TechFlow Inc.</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-[#DCFCE7] text-[#166534] text-label-md font-semibold">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-blue-50/30 transition-colors group">
+<td class="px-6 py-4 font-semibold text-body-md">Financial Analyst Intern</td>
+<td class="px-6 py-4 text-body-md text-on-surface-variant">Global Finance</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-[#FEF9C3] text-[#92400E] text-label-md font-semibold">Draft</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-blue-50/30 transition-colors group">
+<td class="px-6 py-4 font-semibold text-body-md">Fullstack Engineer (Java)</td>
+<td class="px-6 py-4 text-body-md text-on-surface-variant">TechFlow Inc.</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-[#DCFCE7] text-[#166534] text-label-md font-semibold">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-blue-50/30 transition-colors group">
+<td class="px-6 py-4 font-semibold text-body-md">Marketing Coordinator</td>
+<td class="px-6 py-4 text-body-md text-on-surface-variant">MediCore Health</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-[#F1F5F9] text-[#475569] text-label-md font-semibold">Archived</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-blue-50/30 transition-colors group">
+<td class="px-6 py-4 font-semibold text-body-md">Lead Nurse (ICU)</td>
+<td class="px-6 py-4 text-body-md text-on-surface-variant">MediCore Health</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-[#DCFCE7] text-[#166534] text-label-md font-semibold">Active</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary" data-icon="more_vert">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface dark:bg-surface-container-highest border-t border-outline-variant fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 shadow-lg">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-3 py-1 scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="font-label-md text-label-md">Companies</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">JD Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline p-2 hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<!-- Desktop Navigation Side Drawer (Hidden on mobile) -->
+<aside class="hidden md:flex h-full w-sidebar-width fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container shadow-xl flex flex-col gap-stack-sm p-4 z-[60] transition-all duration-300 ease-in-out -translate-x-full" id="sideDrawer">
+<div class="flex items-center gap-3 p-4 mb-4 border-b border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">JD</div>
+<div>
+<p class="font-bold text-primary">JD Manager</p>
+<p class="text-label-md text-on-surface-variant">Recruitment Team</p>
+</div>
+<button class="ml-auto material-symbols-outlined text-outline hover:text-primary" onclick="toggleDrawer()">close</button>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-body-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="text-body-lg">Companies</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-body-lg">JD Library</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-body-lg">Create JD</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-body-lg">Version History</span>
+</a>
+<hr class="my-4 border-outline-variant/30"/>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-variant dark:hover:bg-inverse-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-body-lg">Settings</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-error hover:bg-error-container/20 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-body-lg">Logout</span>
+</a>
+</nav>
+<div class="mt-auto p-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small avatar image of a professional user, representing an HR manager. The image is circular and features a person with a friendly, approachable expression against a neutral, high-key studio background. The style is professional, clean, and consistent with a modern corporate software application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbxT3hNzLP2vZUZLT2zvCN4iIy8WeCEtZaU3HEvYpKASA4OqjKjbA0S4nTSNNuRM_8Fc4qcTB1nmF3FxjIdd704jCB9dW_A4SXCED_C9En1RIFT_fynBGngwAsficB70xX4xKg42wjWNH_GGe9fzsm2tSaAwufIOUoeByQ-ojbwO6wKB3GrnYYlg3kdVjmYHYetDDprEhq2md9_PmmMsCICN9xMWVbU_xmNcNq2630D0KMYOVU961P9RJ4XnylE--zgR9Gj46ExZQ"/>
+</div>
+<div>
+<p class="text-label-md font-bold">Sarah Miller</p>
+<p class="text-[10px] text-outline">v1.0.4</p>
+</div>
+</div>
+</aside>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('sideDrawer');
+            if (drawer.classList.contains('-translate-x-full')) {
+                drawer.classList.remove('-translate-x-full');
+            } else {
+                drawer.classList.add('-translate-x-full');
+            }
+        }
+
+        // Attach to menu icon
+        document.querySelector('[data-icon="menu"]').addEventListener('click', toggleDrawer);
+
+        // Hover animation logic for cards
+        const cards = document.querySelectorAll('section > div');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if(!card.classList.contains('bg-white')) return;
+                card.classList.add('translate-y-[-4px]');
+            });
+            card.addEventListener('mouseleave', () => {
+                if(!card.classList.contains('bg-white')) return;
+                card.classList.remove('translate-y-[-4px]');
+            });
+        });
+    </script>
+</body></html>
