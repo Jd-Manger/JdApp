@@ -22,15 +22,24 @@ A frontend-only SaaS-style job-description manager built from the supplied Stitc
    ```env
    VITE_SUPABASE_URL=https://your-project.supabase.co
    VITE_SUPABASE_ANON_KEY=your-anon-key
+   BLOB_READ_WRITE_TOKEN=your-vercel-blob-read-write-token
    ```
 
 6. Start the app: `npm run dev`
 
-Only the public anon key belongs in the frontend. Never use a Supabase service-role key here. Row Level Security in the supplied schema ensures each authenticated user can only access their own companies, JDs, and versions.
+Only `VITE_` variables belong in the frontend. `BLOB_READ_WRITE_TOKEN` is server-only and must never be hardcoded or exposed in browser code. Row Level Security in the supplied schema ensures each authenticated user can only access their own companies, JDs, and versions.
+
+Candidate resumes are uploaded through the Vercel API route at `/api/resumes/upload` into Vercel Blob using client/company/JD-specific paths:
+
+```txt
+clients/{company-id-company-name}/jds/{jd-id-job-title}/resumes/{dedupe-key-file-name}
+```
+
+This keeps each client's data separated and prevents overwriting duplicate resume paths.
 
 ## Vercel deployment
 
-Import this folder into Vercel, keep the detected Vite settings, and add the two `VITE_` environment variables. The included `vercel.json` provides SPA route rewrites. Supabase's free plan and Vercel's free plan are sufficient for normal development and small deployments.
+Import this folder into Vercel, keep the detected Vite settings, and add the two `VITE_` environment variables plus the server-only `BLOB_READ_WRITE_TOKEN`. The included `vercel.json` provides SPA route rewrites. Supabase's free plan and Vercel's free plan are sufficient for normal development and small deployments.
 
 ## Design references
 
